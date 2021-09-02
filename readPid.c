@@ -71,7 +71,7 @@ int main(void) {
     }
 
     for(int i=0;i<10;i++) {
-        printf("%5d %-20s: %lu\n", ans[i].pid, ans[i].processName, ans[i].uTime);
+        printf("%5d : %lu\n", ans[i].pid, ans[i].uTime);
     }
 
     closedir(procdir);
