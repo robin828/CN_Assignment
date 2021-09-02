@@ -61,7 +61,7 @@ int main(void) {
         );
 
         ans[counter].pid=pid;
-        ans[counter].processName=path;
+        // ans[counter].processName=path;
         ans[counter].uTime=maj_faults;
         counter++;
         // Pretty print.
