@@ -99,7 +99,7 @@ int main(void) {
     }
 
     for(int i=0;i<counter;i++) {
-        printf("%5d, %lu\n", sortedAnswer[i].pid, sortedAnswer[i].uTime, sortedAnswer[i].xTime);
+        printf("%5d, %lu, %lu\n", ans[i].pid, ans[i].uTime, ans[i].xTime);
     }
 
 
