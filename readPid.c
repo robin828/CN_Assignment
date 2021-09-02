@@ -89,9 +89,9 @@ int main(void) {
                 maxIndex = j;
             }
         }
-        sortedAnswer[i].xTime = ans[j].xTime
-        sortedAnswer[i].uTime = ans[j].uTime
-        sortedAnswer[i].pid = ans[j].pid
+        sortedAnswer[i].xTime = ans[maxIndex].xTime;
+        sortedAnswer[i].uTime = ans[maxIndex].uTime;
+        sortedAnswer[i].pid = ans[maxIndex].pid;
         ans[maxIndex].uTime=-1;
         ans[maxIndex].xTime=-1;
 
