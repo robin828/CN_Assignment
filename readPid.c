@@ -118,7 +118,10 @@ int main(void) {
     // printf("Enter a sentence:\n");
     // fprintf(fptr, "%s", sentence);
     for(int i=0;i<counter;i++) {
-        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].pid, ans[i].uTime, ans[i].xTime);
+        
+        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].pid);
+        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].uTime);
+        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].xTime);
     }
     fclose(fptr);
 
