@@ -9,6 +9,7 @@ struct Answer
     int pid;
     char processName[100];
     long unsigned uTime;
+    long unsigned xTime;
     
 };
 int is_pid_folder(const struct dirent *entry) {
@@ -31,7 +32,7 @@ int main(void) {
     unsigned long maj_faults;
     int N = 10;
     int counter=0;
-    struct Answer ans[N];
+    struct Answer ans[10000];
 
     // Open /proc directory.
     procdir = opendir("/proc");
@@ -63,6 +64,7 @@ int main(void) {
         ans[counter].pid=pid;
         // ans[counter].processName=path;
         ans[counter].uTime=maj_faults;
+        ans[counter].xTime=maj_faults;
         counter++;
         // Pretty print.
         // printf("%5d %-20s: %lu\n", pid, path, maj_faults);
@@ -70,9 +72,36 @@ int main(void) {
         fclose(fp);
     }
 
-    for(int i=0;i<10;i++) {
-        printf("%5d, %lu\n", ans[i].pid, ans[i].uTime);
+    // for(int i=0;i<10;i++) {
+    //     printf("%5d, %lu\n", ans[i].pid, ans[i].uTime);
+    // }
+
+    int op = counter;
+
+    struct Answer sortedAnswer[counter+1];
+
+    for(int i=0;i<counter;i++) {
+        int maxValue = -1;
+        int maxIndex = 0;
+        for(int  j=0;j<counter;j++) {
+            if(ans[j].uTime+ans[j].xTime > maxValue) {
+                maxValue = ans[j].uTime+ans[j].xTime;
+                maxIndex = j;
+            }
+        }
+        sortedAnswer[i].xTime = ans[j].xTime
+        sortedAnswer[i].uTime = ans[j].uTime
+        sortedAnswer[i].pid = ans[j].pid
+        ans[maxIndex].uTime=-1;
+        ans[maxIndex].xTime=-1;
+
     }
+
+    for(int i=0;i<counter;i++) {
+        printf("%5d, %lu\n", sortedAnswer[i].pid, sortedAnswer[i].uTime, sortedAnswer[i].xTime);
+    }
+
+
 
     closedir(procdir);
     return 0;
