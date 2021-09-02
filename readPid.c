@@ -119,9 +119,9 @@ int main(void) {
     // fprintf(fptr, "%s", sentence);
     for(int i=0;i<counter;i++) {
         
-        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].pid);
-        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].uTime);
-        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].xTime);
+        fprintf(fptr, "%5d", ans[i].pid);
+        fprintf(fptr, "%lu", ans[i].uTime);
+        fprintf(fptr, "%lu", ans[i].xTime);
     }
     fclose(fptr);
 
