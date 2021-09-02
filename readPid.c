@@ -100,9 +100,29 @@ int main(void) {
         }
     }
 
-    for(int i=0;i<counter;i++) {
-        printf("%5d, %lu, %lu\n", ans[i].pid, ans[i].uTime, ans[i].xTime);
+
+
+    char sentence[1000];
+
+    // creating file pointer to work with files
+    FILE *fptr;
+
+    // opening file in writing mode
+    fptr = fopen("program.txt", "w");
+
+    // exiting program 
+    if (fptr == NULL) {
+        printf("Error!");
+        exit(1);
     }
+    // printf("Enter a sentence:\n");
+    // fprintf(fptr, "%s", sentence);
+    for(int i=0;i<counter;i++) {
+        fprintf(fptr, "%5d, %lu, %lu\n", ans[i].pid, ans[i].uTime, ans[i].xTime);
+    }
+    fclose(fptr);
+
+
 
 
 
