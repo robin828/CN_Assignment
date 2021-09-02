@@ -30,6 +30,8 @@ int main(void) {
     char path[256 + 5 + 5]; // d_name + /proc + /stat
     int pid;
     unsigned long maj_faults;
+    unsigned long u_time;
+    unsigned long s_time;
     int N = 10;
     int counter=0;
     struct Answer ans[10000];
