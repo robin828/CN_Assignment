@@ -83,18 +83,19 @@ int main(void) {
     for(int i=0;i<counter;i++) {
         int maxValue = -1;
         int maxIndex = 0;
-        for(int  j=0;j<counter;j++) {
-            if(ans[j].uTime+ans[j].xTime > maxValue) {
-                maxValue = ans[j].uTime+ans[j].xTime;
-                maxIndex = j;
+        for(int  j=i+1;j<counter;j++) {
+            if(ans[j].uTime+ans[j].xTime > ans[i].uTime+ans[i].xTime) {
+                struct Answer temp;
+                temp.pid = ans[i].pid;
+                temp.xTime = ans[i].xTime;
+                temp.uTime = ans[i].uTime;
+                ans[i].pid = ans[j].pid;
+                ans[i].xTime = ans[j].xTime;
+                ans[i].uTime = ans[j].uTime;
+
+                ans[j] = temp;
             }
         }
-        sortedAnswer[i].xTime = ans[maxIndex].xTime;
-        sortedAnswer[i].uTime = ans[maxIndex].uTime;
-        sortedAnswer[i].pid = ans[maxIndex].pid;
-        ans[maxIndex].uTime=-1;
-        ans[maxIndex].xTime=-1;
-
     }
 
     for(int i=0;i<counter;i++) {
