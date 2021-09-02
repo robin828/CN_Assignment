@@ -59,7 +59,7 @@ int main(void) {
         }
 
         // Get PID, process name and number of faults.
-        fscanf(fp, "%d %s %*c %*d %*d %*d %*d %*d %*u %*lu %*lu %lu %lu %lu %lu",
+        fscanf(fp, "%d %s %*c %*d %*d %*d %*d %*d %*u %*lu %*lu %*lu %*lu %lu %lu",
             &pid, &path, &u_time, &s_time
         );
 
