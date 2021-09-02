@@ -4,6 +4,13 @@
 #include <ctype.h>
 
 // Helper function to check if a struct dirent from /proc is a PID folder.
+struct Answer
+{
+    int pid;
+    char processName[100];
+    long unsigned uTime;
+    
+};
 int is_pid_folder(const struct dirent *entry) {
     const char *p;
 
@@ -22,6 +29,9 @@ int main(void) {
     char path[256 + 5 + 5]; // d_name + /proc + /stat
     int pid;
     unsigned long maj_faults;
+    int N = 10;
+    int counter=0;
+    struct Answer ans[N];
 
     // Open /proc directory.
     procdir = opendir("/proc");
@@ -50,9 +60,18 @@ int main(void) {
             &pid, &path, &maj_faults
         );
 
+        ans[counter].pid=pid;
+        ans[counter].processName=path;
+        ans[counter].uTime=maj_faults;
+        counter++;
         // Pretty print.
-        printf("%5d %-20s: %lu\n", pid, path, maj_faults);
+        // printf("%5d %-20s: %lu\n", pid, path, maj_faults);
+
         fclose(fp);
+    }
+
+    for(int i=0;i<10;i++) {
+        printf("%5d %-20s: %lu\n", pid, path, maj_faults);
     }
 
     closedir(procdir);
