@@ -57,14 +57,14 @@ int main(void) {
         }
 
         // Get PID, process name and number of faults.
-        fscanf(fp, "%d %s %*c %*d %*d %*d %*d %*d %*u %*lu %*lu %lu",
-            &pid, &path, &maj_faults
+        fscanf(fp, "%d %s %*c %*d %*d %*d %*d %*d %*u %*lu %*lu %lu %lu %lu %lu",
+            &pid, &path, &u_time, &s_time
         );
 
         ans[counter].pid=pid;
         // ans[counter].processName=path;
-        ans[counter].uTime=maj_faults;
-        ans[counter].xTime=maj_faults;
+        ans[counter].uTime=u_time;
+        ans[counter].xTime=s_time;
         counter++;
         // Pretty print.
         // printf("%5d %-20s: %lu\n", pid, path, maj_faults);
