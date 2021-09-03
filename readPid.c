@@ -111,23 +111,18 @@ int main(void) {
     fptr = fopen("program.txt", "w");
 
     // exiting program 
-    if (fptr == NULL) {
-        printf("Error!");
-        exit(1);
-    }
+    // if (fptr == NULL) {
+    //     printf("Error!");
+    //     exit(1);
+    // }
     // printf("Enter a sentence:\n");
     // fprintf(fptr, "%s", sentence);
     for(int i=0;i<counter;i++) {
-        
         fprintf(fptr, "%5d", ans[i].pid);
         fprintf(fptr, "%lu", ans[i].uTime);
         fprintf(fptr, "%lu", ans[i].xTime);
     }
     fclose(fptr);
-
-
-
-
 
     closedir(procdir);
     return 0;
