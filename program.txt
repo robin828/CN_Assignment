@@ -1,1 +1,1 @@
-A, b, c
+cd "/Users/robindahiya/Documents/GitHub/CN_Assignment/" && gcc readPid.c -o readPid && "/Users/robindahiya/Documents/GitHub/CN_Assignment/"readPid
